@@ -2,26 +2,25 @@ package com.mvp.libin.mvp_example.presenter;
 
 import android.os.Handler;
 
-import com.mvp.libin.mvp_example.base.MVPBaseActivity;
 import com.mvp.libin.mvp_example.bean.User;
-import com.mvp.libin.mvp_example.biz.IUserBiz;
-import com.mvp.libin.mvp_example.biz.OnLoginListener;
-import com.mvp.libin.mvp_example.biz.UserBiz;
-import com.mvp.libin.mvp_example.view.IUserLoginView;
+import com.mvp.libin.mvp_example.model.IUserModel;
+import com.mvp.libin.mvp_example.model.OnLoginListener;
+import com.mvp.libin.mvp_example.model.UserModel;
+import com.mvp.libin.mvp_example.view.IViewUserLogin;
 
 /**
  * Created by libin on 16/11/8.
  */
 
 public class UserLoginPresenter{
-    private IUserBiz userBiz;
-    private IUserLoginView userLoginView;
+    private IUserModel userBiz;
+    private IViewUserLogin userLoginView;
     private Handler mHandler = new Handler();
 
-    public UserLoginPresenter(IUserLoginView userLoginView)
+    public UserLoginPresenter(IViewUserLogin userLoginView)
     {
         this.userLoginView = userLoginView;
-        this.userBiz = new UserBiz();
+        this.userBiz = new UserModel();
     }
 
     public void login()

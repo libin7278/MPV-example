@@ -1,5 +1,6 @@
 package com.mvp.libin.mvp_example;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,20 +8,20 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.mvp.libin.mvp_example.base.MVPBaseActivity;
 import com.mvp.libin.mvp_example.bean.User;
-import com.mvp.libin.mvp_example.presenter.UserLoginPresenterB;
-import com.mvp.libin.mvp_example.view.IUserLoginView;
+import com.mvp.libin.mvp_example.presenter.UserLoginPresenter;
+import com.mvp.libin.mvp_example.view.IViewUserLogin;
 
 /**
  * Created by libin on 16/11/9.
  */
 
-public class UserLoginActivityB extends MVPBaseActivity<IUserLoginView,UserLoginPresenterB>implements IUserLoginView{
+public class ActivityUserLogin extends Activity implements IViewUserLogin {
     private EditText et_usernam,et_userpassword;
     private ProgressBar pb;
     private Button btn_login,btn_clear;
 
+    private UserLoginPresenter userLoginPresenter = new UserLoginPresenter(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class UserLoginActivityB extends MVPBaseActivity<IUserLoginView,UserLogin
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.login();
+                userLoginPresenter.login();
             }
         });
 
@@ -40,15 +41,10 @@ public class UserLoginActivityB extends MVPBaseActivity<IUserLoginView,UserLogin
         btn_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.clear();
+                userLoginPresenter.clear();
             }
         });
 
-    }
-
-    @Override
-    protected UserLoginPresenterB createPresenter() {
-        return new UserLoginPresenterB(this);
     }
 
     private void findViewById() {

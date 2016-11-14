@@ -1,4 +1,4 @@
-package com.mvp.libin.mvp_example.biz;
+package com.mvp.libin.mvp_example.model;
 
 import com.mvp.libin.mvp_example.bean.User;
 
@@ -6,7 +6,7 @@ import com.mvp.libin.mvp_example.bean.User;
  * Created by libin on 16/11/8.
  */
 
-public class UserBiz implements IUserBiz {
+public class UserModel implements IUserModel {
     @Override
     public void login(final String username, final String password, final OnLoginListener loginListener) {
         //模拟子线程耗时操作
@@ -23,7 +23,7 @@ public class UserBiz implements IUserBiz {
                     e.printStackTrace();
                 }
                 //模拟登录成功
-                if ("zhy".equals(username) && "123".equals(password))
+                if ("123".equals(username) && "123".equals(password))
                 {
                     User user = new User();
                     user.setUsername(username);

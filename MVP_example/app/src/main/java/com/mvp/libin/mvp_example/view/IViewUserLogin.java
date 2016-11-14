@@ -6,7 +6,7 @@ import com.mvp.libin.mvp_example.bean.User;
  * Created by libin on 16/11/8.
  */
 
-public interface IUserLoginView {
+public interface IViewUserLogin {
     String getUserName();
 
     String getPassword();

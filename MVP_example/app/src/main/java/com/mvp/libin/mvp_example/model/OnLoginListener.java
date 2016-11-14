@@ -1,4 +1,4 @@
-package com.mvp.libin.mvp_example.biz;
+package com.mvp.libin.mvp_example.model;
 
 import com.mvp.libin.mvp_example.bean.User;
 
